@@ -8,6 +8,7 @@ namespace KursovRPM
 {
     public class Task
     {
+        public int Id { get; set; } // номер задачи
         public string Title { get; set; } // название задачи
         public string Description { get; set; } // описание задачки
         public string Category { get; set; } // категория

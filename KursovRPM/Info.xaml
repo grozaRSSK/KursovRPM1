@@ -1,0 +1,31 @@
+﻿<Window x:Class="KursovRPM.Info"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:KursovRPM"
+        mc:Ignorable="d"
+        Title="Info" Height="545" Width="810"
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="NoResize" Icon="/ikon.png">
+    <Window.Background>
+        <ImageBrush ImageSource="/инфо.png"/>
+    </Window.Background>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="272*"/>
+            <ColumnDefinition Width="145*"/>
+            <ColumnDefinition Width="271*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="71*"/>
+            <RowDefinition Height="348*"/>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="8*"/>
+        </Grid.RowDefinitions>
+        <Label Content="Информация" Margin="0,0,1,20" FontSize="22" Foreground="#FF3366CC" Grid.Column="1" />
+        <TextBlock x:Name="InfoTextBlock" TextWrapping="Wrap" Foreground="#0D47A1" FontFamily="Segoe UI" FontSize="16" LineHeight="22" Grid.RowSpan="2" Margin="20,70,20,3" Grid.ColumnSpan="3"/>
+        <Button x:Name="CloseButton" Content="Понятно"  Click="Exit_Click"   Margin="1,56,10,5" BorderBrush="#FF3366CC" Background="#FF3366CC" Foreground="#FFF2EFEF" FontSize="16"  Grid.Column="2" Grid.RowSpan="2" Grid.Row="2"/>
+    </Grid>
+</Window>

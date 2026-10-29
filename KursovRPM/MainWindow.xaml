@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="MainWindow" Height="796" Width="1117">
+        Title="MainWindow" Height="796" Width="1117" Icon="/ikon.png">
     <Window.Background>
         <ImageBrush ImageSource="/17904980490c75.png"/>
     </Window.Background>
@@ -15,7 +15,12 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="23*"/>
             <RowDefinition Height="133*"/>
-            <RowDefinition Height="490*"/>
+            <RowDefinition Height="46*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="48*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="278*"/>
             <RowDefinition Height="134*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -26,19 +31,24 @@
         </Grid.ColumnDefinitions>
         <Menu VerticalAlignment="Top" Height="17" BorderBrush="{x:Null}"  Opacity="0">
             <MenuItem  Width="83" Height="20" >
-                <MenuItem Header="О программе" ToolTip="Вывод информации о создателе и задании" Click="Info_Click"/>
+                <MenuItem Header="О программе" ToolTip="Вывод информации о создателе и задании" Click="Info_Click" />
                 <MenuItem Header="Выход" Click="Exit_Click"/>
                 <MenuItem Header="Открыть" Click="Open_Click"/>
                 <MenuItem Header="Сохранить" Click="Save_Click"/>
             </MenuItem>
         </Menu>
 
+        <Label Content="Поиск:" Margin="29,10,0,4"  Foreground="#FF3AA8E7" FontSize="16"  Grid.Row="2"/>
+        <TextBox x:Name="tbSearch" ToolTip="Поиск" TextChanged="tbSearch_TextChanged" Margin="6,5,4,0" Grid.Row="3"/>
+        <Label Content="Фильтр:" Margin="34,4,163,2"  Foreground="#FF3AA8E7" FontSize="16"  Grid.Row="5" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="tbCategory" Margin="5,3,5,2" TextChanged="tbCategory_TextChanged" Grid.Row="6"/>
+
         <Button x:Name="ProfileButton" Content="Войти" Click="ProfileButton_Click" Margin="0,1,4,3" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.Row="1" >
             <Button.Background>
                 <ImageBrush ImageSource="/png-clipart-computer-icons-login-scalable-graphics-email-accountability-blue-logo.png"/>
             </Button.Background>
         </Button>
-        <Button x:Name="CloseButton" Content="выход"  Click="Exit_Click" BorderBrush="{x:Null}" Foreground="{x:Null}"  Margin="0,490,0,0" Grid.Row="2" Grid.RowSpan="2">
+        <Button x:Name="CloseButton" Content="выход"  Click="Exit_Click" BorderBrush="{x:Null}" Foreground="{x:Null}"  Margin="0,278,0,0" Grid.Row="7" Grid.RowSpan="2">
             <Button.Background>
                 <ImageBrush ImageSource="/obhyKAv64qmlu0jZyQOILHXXfU5cZryIlzlUeXVSKZjI_s8XZNMXgSze9yRDTeClfokDTLOzs2_1nSrhOk4E6yi9-fotor-bg-remover-20260927122046.png"/>
             </Button.Background>
@@ -46,33 +56,27 @@
 
         <Label Grid.Column="1"  Content="Задачи" Foreground="#FF187BFF" FontSize="24" Margin="0,18,0,93" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
 
-        <ListView x:Name="lwZadach" Grid.Column="1" Grid.Row="1" Grid.RowSpan="2" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,40,10,10" Foreground="#FF442F61" FontFamily="Times New Roman" Grid.ColumnSpan="3">
+        <ListView x:Name="lwZadach" Grid.Column="1" Grid.Row="1" Grid.RowSpan="7" Margin="10,40,10,10" FontFamily="Times New Roman" Grid.ColumnSpan="3">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <Grid>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                            <RowDefinition/>
-                        </Grid.RowDefinitions>
-                        <TextBlock Grid.Column="1" Grid.ColumnSpan="2" TextAlignment="Left" FontSize="24" Text="{Binding Name}"></TextBlock>
-                        <TextBlock Grid.Column="1" Grid.Row="1" TextAlignment="Left" FontSize="20" Text="{Binding TypeName, StringFormat={}Описание: {0}}"></TextBlock>
-                        <TextBlock Grid.Column="1" Grid.Row="2" TextAlignment="Left" FontSize="19" Text="{Binding Count, StringFormat={}Теги:{0}}"></TextBlock>
-                        <TextBlock Grid.Column="2" Grid.Row="3" TextAlignment="Left" FontSize="19" Text="{Binding Brand, StringFormat={}Дата:{0}}"></TextBlock>
-                        <TextBlock Grid.Column="1" Grid.Row="3" TextAlignment="Left" FontSize="19" Text="{Binding Price, StringFormat={}Статус:{0}}"></TextBlock>
-                    </Grid>
+                    <StackPanel Margin="0,5,0,5">
+                        <TextBlock FontSize="24" FontWeight="Bold" Text="{Binding Title}" />
+
+                        <TextBlock FontSize="20" Text="{Binding Description, StringFormat=Описание: {0}}" />
+
+                        <TextBlock FontSize="19" Text="{Binding TagsString, StringFormat=Теги: {0}}" />
+
+                        <TextBlock FontSize="19" Text="{Binding Category, StringFormat=Категория: {0}}" />
+
+                        <TextBlock FontSize="19" Text="{Binding Date, StringFormat=Дата: {0:dd.MM.yyyy}}" />
+
+                        <TextBlock FontSize="19" Text="{Binding Status, StringFormat=Статус: {0}}" />
+                    </StackPanel>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
 
-        <GroupBox Grid.Column="2" Margin="2,480,0,6" Grid.Row="2" Grid.RowSpan="2">
+        <GroupBox Grid.Column="2" Margin="2,268,0,6" Grid.Row="7" Grid.RowSpan="2">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="3*"/>
