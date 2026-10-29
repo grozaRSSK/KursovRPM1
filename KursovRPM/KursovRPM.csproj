@@ -12,24 +12,29 @@
     <None Remove="17904980490c75.png" />
     <None Remove="17904988335ccc.png" />
     <None Remove="17904991325e1e.png" />
+    <None Remove="1792434287da89.png" />
     <None Remove="79135b16920776d4f8e9253d94ba4b86.jpg" />
+    <None Remove="ikon.png" />
     <None Remove="konvertus-background-removed.png" />
     <None Remove="obhyKAv64qmlu0jZyQOILHXXfU5cZryIlzlUeXVSKZjI_s8XZNMXgSze9yRDTeClfokDTLOzs2_1nSrhOk4E6yi9-fotor-bg-remover-20260927122046.png" />
     <None Remove="png-clipart-computer-icons-login-scalable-graphics-email-accountability-blue-logo.png" />
     <None Remove="remove.photos-removed-background.png" />
     <None Remove="xwplBBxHzfMtQcMSM7A97ietebUtYpzkg_Mi3DA4TOctaJAsKQ-edited-free %28carve.photos%29.png" />
+    <None Remove="инфо.png" />
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="17904980490c75.png" />
     <Resource Include="17904988335ccc.png" />
     <Resource Include="17904991325e1e.png" />
-    <Resource Include="79135b16920776d4f8e9253d94ba4b86.jpg" />
+    <Resource Include="1792434287da89.png" />
+    <Resource Include="ikon.png" />
     <Resource Include="konvertus-background-removed.png" />
     <Resource Include="obhyKAv64qmlu0jZyQOILHXXfU5cZryIlzlUeXVSKZjI_s8XZNMXgSze9yRDTeClfokDTLOzs2_1nSrhOk4E6yi9-fotor-bg-remover-20260927122046.png" />
     <Resource Include="png-clipart-computer-icons-login-scalable-graphics-email-accountability-blue-logo.png" />
     <Resource Include="remove.photos-removed-background.png" />
     <Resource Include="xwplBBxHzfMtQcMSM7A97ietebUtYpzkg_Mi3DA4TOctaJAsKQ-edited-free (carve.photos).png" />
+    <Resource Include="инфо.png" />
   </ItemGroup>
 
 </Project>

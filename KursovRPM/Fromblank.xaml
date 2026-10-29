@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KursovRPM"
         mc:Ignorable="d"
+        x:Name="WindowAddEditTask"
         ResizeMode="NoResize"
         WindowStartupLocation="CenterScreen"
-        Title="Fromblank" Height="916" Width="666">
+        Title="" Height="916" Width="666" Icon="/ikon.png">
     <Window.Background>
         <ImageBrush ImageSource="/17904991325e1e.png"/>
     </Window.Background>
@@ -37,33 +38,27 @@
         <Label FontFamily="Algerian" Content="Форма добавление/редактирования." HorizontalAlignment="Center" FontSize="18" FontWeight="Bold" Margin="0,10,0,28" Width="342" Grid.RowSpan="2" Grid.Column="1" />
 
         <Label Grid.Row="1" Content="Название:" Margin="38,1,39,1" FontSize="16" FontFamily="Times New Roman" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="TitleTextBox" FontSize="16" FontFamily="Times New Roman" Margin="38,4,39,5" BorderBrush="DeepSkyBlue" Grid.Row="2" Grid.ColumnSpan="3" />
+        <TextBox x:Name="TitleTextBox" Text="{Binding Title}" FontSize="16" FontFamily="Times New Roman" Margin="38,4,39,5" BorderBrush="DeepSkyBlue" Grid.Row="2" Grid.ColumnSpan="3" />
 
         <Label Content="Описание:" Margin="38,10,39,5" FontSize="16" FontFamily="Times New Roman" Grid.Row="3" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="DescriptionTextBox" FontSize="16" FontFamily="Times New Roman" Margin="38,41,39,1" AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="DescriptionTextBox" Text="{Binding Description}" FontSize="16" FontFamily="Times New Roman" Margin="38,41,39,1" AcceptsReturn="True" TextWrapping="Wrap" Grid.Row="3" Grid.RowSpan="2" Grid.ColumnSpan="3"/>
 
         <Label Grid.Row="5" Content="Категория:" Margin="1,4,36,1" FontSize="16" FontFamily="Times New Roman" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <ComboBox x:Name="FilterComboBox" Margin="39,2,38,5" ToolTip="Выберите тип категорию" FontSize="16" FontFamily="Times New Roman" Text="{Binding Path=Коммерческая}" BorderBrush="#FF65E5FD" Grid.Row="6" Grid.ColumnSpan="3">
-            <ComboBox.Background>
-                <LinearGradientBrush EndPoint="0,1">
-                    <GradientStop Color="#FFF0F0F0"/>
-                    <GradientStop Color="#FF65E5FD" Offset="1"/>
-                </LinearGradientBrush>
-            </ComboBox.Background>
+        <ComboBox x:Name="FilterComboBox" Margin="39,2,38,5" ToolTip="Выберите категорию" FontSize="16" FontFamily="Times New Roman" BorderBrush="#FF65E5FD" Grid.Row="6" Grid.ColumnSpan="3" Text="{Binding Path=Category}">
             <ComboBoxItem Content="Работа" FontSize="16" FontFamily="Times New Roman"/>
             <ComboBoxItem Content="Учёба" FontSize="16" FontFamily="Times New Roman"/>
             <ComboBoxItem Content="Личное" FontSize="16" FontFamily="Times New Roman"/>
             <ComboBoxItem Content="Другое" FontSize="16" FontFamily="Times New Roman"/>
         </ComboBox>
         <Label Content="Теги:" Margin="1,55,36,0" FontSize="16" FontFamily="Times New Roman" Grid.Row="6" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <TextBox x:Name="TagTextBox" FontSize="16" FontFamily="Times New Roman" Margin="39,6,38,6" MaxLength="300" Foreground="Black" BorderBrush="DeepSkyBlue" Grid.Row="8" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="TagTextBox" Text="{Binding TagsString}" FontSize="16" FontFamily="Times New Roman" Margin="39,6,38,6" MaxLength="300" Foreground="Black" BorderBrush="DeepSkyBlue" Grid.Row="8" Grid.ColumnSpan="3"/>
 
         <Label Content="Дата:" FontSize="16" FontFamily="Times New Roman" Margin="1,45,36,40" Grid.Row="8" Grid.RowSpan="3" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <DatePicker  x:Name="TaskDatePicker"  Margin="1,6,0,3" FontSize="16" Grid.Row="10" Grid.Column="1"/>
+        <DatePicker  x:Name="TaskDatePicker" Text="{Binding Date}"  Margin="1,6,0,3" FontSize="16" Grid.Row="10" Grid.Column="1"/>
 
         <Label Content="Статус:" FontSize="16" FontFamily="Times New Roman" Margin="1,1,36,26" Grid.Row="11" Grid.RowSpan="2" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <RadioButton x:Name="HighPriorityRadio" Content="В первую очередь" Margin="1,11,435,170" FontSize="16" FontFamily="Times New Roman" Grid.Row="12" Grid.RowSpan="2" Grid.Column="1"/>
-        <RadioButton x:Name="LowPriorityRadio" Content="На потом" Margin="170,11,254,4" FontSize="16" FontFamily="Times New Roman" Grid.Row="12" Grid.Column="1"/>
+        <RadioButton x:Name="HighPriorityRadio"  Content="В первую очередь" Margin="1,11,395,170" FontSize="16" FontFamily="Times New Roman" Grid.Row="12" Grid.RowSpan="2" Grid.Column="1"/>
+        <RadioButton x:Name="LowPriorityRadio"  Content="На потом" Margin="206,11,160,4" FontSize="16" FontFamily="Times New Roman" Grid.Row="12" Grid.Column="1"/>
 
         <GroupBox Header="Дата и время текущее:" Margin="76,18,77,13" FontSize="16" FontFamily="Times New Roman" BorderBrush="#FF1DA9FD" Grid.Row="13" Grid.Column="1">
             <Grid>
@@ -72,7 +67,7 @@
             </Grid>
         </GroupBox>
 
-        <Button x:Name="addButton" Content="Добавить" Click="addButton_Click" Margin="430,35,14,10" Foreground="{x:Null}" BorderBrush="{x:Null}" Opacity="0" Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2"/>
-        <Button x:Name="resizeButton" Content="Отмена" Click="resizeButton_Click" Margin="239,38,166,10"  Foreground="{x:Null}" BorderBrush="{x:Null}" Opacity="0" Grid.Row="14" Grid.Column="1" />
+        <Button x:Name="addButton" Content="Добавить" Click="addButton_Click" Margin="430,35,14,10" Background="#FF1DA9FD" FontSize="16"   Grid.Row="14" Grid.Column="1" Grid.ColumnSpan="2"/>
+        <Button x:Name="resizeButton" Content="Отмена" Click="resizeButton_Click" Margin="239,35,166,10" Background="White" FontSize="16"  Grid.Row="14" Grid.Column="1" />
     </Grid>
 </Window>
